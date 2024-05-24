@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 태그 연습하기</title>
+    <style>
+        img      {max-width: 100%;}
+        #layout1 {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            background: rgb(211, 201, 243);
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+        }
+
+        nav {
+            height: 300px;
+            border-radius: 20px;
+            background: radial-gradient(circle, rgb(247, 227, 250) 10%, rgb(191, 183, 211) 40%, rgb(158, 158, 198) 90%);
+            transition: 0.5s;
+        }
+
+        nav:hover {
+            background: radial-gradient(circle, rgb(189, 213, 232) 10%, rgb(168, 123, 224) 40%, rgb(173, 235, 246) 90%);
+            transform: rotate(30deg);
+        }
+
+        #layout2 {
+            display: flex;
+        }
+
+        #layout2 p {
+            margin: 0;
+
+        }
+
+
+        #layout2 p::first-letter {
+            font-size: 2rem;
+            border: 2px solid red;
+            background-color: rgba(0, 0, 255, .5);
+            border-radius: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #layout2 p:hover::first-letter {
+            background-color: red;
+        }
+
+        main {
+            background-color: aquamarine;
+            padding: 20px;
+            flex: 2;
+        }
+
+        main h2 {
+            margin: 0;
+        }
+
+        /*
+        main p:hover {
+            height: 50;
+            background-color: red;
+        } */
+
+        aside {
+            background-color: beige;
+            padding: 20px;
+            flex: 1;
+        }
+
+        aside h3 {
+            margin: 0;
+        }
+
+        footer {
+            background-color: greenyellow;
+            padding: 20px;
+        }
+
+        footer h3 {
+            margin: 0;
+            text-align: center;
+        }
+
+        /* 홈태그 부분 */
+        form {max-width : 270px; margin : auto; margin-right: 0; display: flex; align-items: center; padding: 50; transition: 0.5s;}
+        form input {display: block; border: #ddd solid 1px; text-align: center;}
+        [type="text"] {padding: 10px; border-radius: 20px; background-color: #fff;}
+        [type="password"] {padding: 10px; border-radius: 20px; background-color: #fff;}
+        form div input {width: 150px;}
+        [type="submit"] {cursor: pointer; padding: 27px; border-radius: 20px; background-color: skyblue;}
+        form:hover {transform: scale(1.2);}
+
+        /* 반응형부분(작은 기계 장치의 적용되는 최대 넓이는 0~550 픽셀 크기) */
+        @media(max-width:550px) {
+            #layout2 {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="layout1">
+        <header>
+            <h1>상단영역</h1>
+            <form action="#" method="post">
+                <div>
+                    <input type="text" placeholder="아이디를 입력하세요.">
+                    <input type="password" placeholder="비밀번호를 입력하세요.">
+                </div>
+                <input type="submit" value="확인">   
+            </form>
+        </header>
+        <nav></nav>
+        <div id="layout2">
+            <main>
+                <h2>메인영역</h2>
+                <p>모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다. 대법관의 임기는 6년으로 하며, 법률이 정하는 바에 의하여 연임할 수 있다. 이 헌법시행 당시에 이 헌법에 의하여 새로
+                    설치될 기관의 권한에 속하는 직무를 행하고 있는 기관은 이 헌법에 의하여 새로운 기관이 설치될 때까지 존속하며 그 직무를 행한다.</p>
+
+                <p>재판의 전심절차로서 행정심판을 할 수 있다. 행정심판의 절차는 법률로 정하되, 사법절차가 준용되어야 한다. 국회는 국가의 예산안을 심의·확정한다.</p>
+
+                <p>모든 국민은 법률이 정하는 바에 의하여 국방의 의무를 진다. 중앙선거관리위원회는 대통령이 임명하는 3인, 국회에서 선출하는 3인과 대법원장이 지명하는 3인의 위원으로 구성한다.
+                    위원장은 위원중에서 호선한다.</p>
+            </main>
+            <aside>
+                <h3>부가영역</h3>
+                <p>대통령은 헌법과 법률이 정하는 바에 의하여 공무원을 임면한다. 국회는 국가의 예산안을 심의·확정한다. 국무회의는 대통령·국무총리와 15인 이상 30인 이하의 국무위원으로 구성한다.
+                </p>
+
+                <p>제1항의 해임건의는 국회재적의원 3분의 1 이상의 발의에 의하여 국회재적의원 과반수의 찬성이 있어야 한다. 대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다.</p>
+
+                <p>국민의 자유와 권리는 헌법에 열거되지 아니한 이유로 경시되지 아니한다. 국가는 국민 모두의 생산 및 생활의 기반이 되는 국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이
+                    정하는 바에 의하여 그에 관한 필요한 제한과 의무를 과할 수 있다.</p>
+            </aside>
+        </div>
+        <footer>
+            <h3>하단정보</h3>
+            <img src="images/summer.jpg" alt="여름">
+        </footer>
+    </div>
+</body>
+
+</html>
