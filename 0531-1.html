@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+    <style>
+        form {
+            max-width: 300px;
+        }
+
+        fieldset {
+            padding: 0 30 7px;
+            border: 2px dashed black;
+            border-radius: 20px;
+            box-shadow: 1px 1px 3px black;
+            font-family: "Gaegu", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        legend {
+            background-color: white;
+            text-align: center;
+            padding: 0 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        input {
+            float: right;
+        }
+
+        button {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" merhod="post">
+        <fieldset>
+            <legend>로그인</legend>
+            <p>ID : <input type="text" required></p>
+            <p>PW : <input type="password" id= "pp" required></p>
+            <p><button type="button">확인</button></p>
+        </fieldset>
+    </form>
+    <footer>1111</footer>
+</body>
+    <script>
+        const x = document.querySelector("input");
+        const ok = document.querySelector("button");
+        const pp = document.querySelector("#pp");
+        ok.addEventListener('click', vv);
+        function vv() {
+           //alert (x.value);
+            document.querySelector("footer").innerHTML = x.value + pp.value;
+        }
+    </script>
+</html>
