@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공이 좌우 그리고 상하로 무한 반복하는 스크립트</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #layout {
+            max-width: 700px;
+            margin: auto;
+            border: 5px solid black;
+            position: relative;
+            height: 70vh;
+        }
+
+        #b1,
+        #b2 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            background-image: radial-gradient(aqua, pink);
+            left: 0;
+        }
+
+        #b1 {
+            top: 100px;
+            left: 0;
+        }
+
+        #b2 {
+            top: 0;
+            left: calc((100% - 100px) / 2);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="layout">
+        <h1>공이 좌우 그리고 상하로 무한 반복한다.</h1>
+        <div id="b1"></div>
+        <div id="b2"></div>
+    </div>
+
+    <script>
+        const $layout = document.querySelector('#layout'); //공들이 들어 있는 아쿠아, 핑크 컨테이너
+        const $b1 = document.querySelector('#b1'); //왼쪽 이동 공
+        const $b2 = document.querySelector('#b2'); //아래쪽 이동 공
+
+        let i = 0; //왼쪽 공 위치 (x좌표)
+        let j = 0; //왼쪽 공 위치 (y좌표)
+
+        let s1 = 10; //속도 (숫자 증가시 속도가 빨라짐)
+        let s2 = 10; //속도 (숫자 증가시 속도가 빨라짐)
+        
+        let ww = $layout.offsetWidth; //아쿠아, 핑크 컨테이너 (#layout) 넓이
+        let wh = $layout.offsetHeight;;
+
+        let bw = $b1.clientWidth; //왼쪽 이동 공의 넓이 (+패딩+보더)
+        let bh = $b2.clientHeight; //
+
+        setInterval(() => move(), 10); //1초면 1000, 0.01초 마다마다 move() 함수를 호출한다.
+
+        move = () => {
+
+            //오른쪽 방향으로 이동
+            i += s1; // i = i + sp; ...0 = 0 + 10을 더한 후 i는 10이 된다.
+
+            //반대 방향으로 리턴
+            //if(오른쪽 끝이거나 왼쪽 끝이라면 반대 방향이 돼라)
+            if( i + bw >= ww  ||  i <= 0 )  s1 *= -1; //sp = sp * (-1) sp = 10 * (-1) sp= -1;
+
+            $b1.style.left = `${i}px`; //백틱문자
+
+            //아래쪽 방향으로 이동
+            j += s2;
+
+            //if(아래쪽 끝이거나 위쪽 끝이라면 반대 방향으로 리턴)
+            if(j + bh >= wh || j <= 0) s2 *= -1;
+            $b2.style.top = `${j}px`;
+        }
+
+
+    </script>
+</body>
+
+</html>
